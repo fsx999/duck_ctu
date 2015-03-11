@@ -17,7 +17,8 @@ develop-eggs
 .installed.cfg
 lib
 lib64
-
+local_settings.py
+bo_local_settings.py
 # Installer logs
 pip-log.txt
 

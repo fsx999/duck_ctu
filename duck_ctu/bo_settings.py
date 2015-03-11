@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # coding=utf-8
 import os
+from django.conf import settings
 from django.conf.global_settings import gettext_noop
 DEBUG = True
 
@@ -31,16 +32,14 @@ INSTALLED_APPS = (
     'xadmin',
     'crispy_forms',
     'django_xworkflows.xworkflow_log',
-    'duck_theme_ied',
+    'duck_bo_ctu',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.comments',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    # 'django.contrib.sites',
     'duck_inscription',
     'django_extensions',
     'django_apogee',
@@ -54,34 +53,9 @@ INSTALLED_APPS = (
     'xhtml2pdf',
     'mailrobot',
     'django.contrib.sites',
-    'django_nyt',
-    # 'django_notify',
-    'mptt',
-    'sekizai',
-    'sorl.thumbnail',
-    'wiki',
-    'wiki.plugins.attachments',
-    'wiki.plugins.notifications',
-    'wiki.plugins.images',
-    'wiki.plugins.macros',
-    'linaro_django_pagination',
-    'djangobb_forum',
-    'haystack',
     'openpyxl',
-    'foad',
-    "django_mptt_admin",
-    "duck_svi",
-    'gestion_info',
-    'macaddress',
-    'markdown_deux',
-    'helpdesk',
-    'bootstrapform',
-    "duck_paiement_etudiant",
-    'duck_examen',
     'duck_utils',
-    'reversion',
-    'ckeditor',
-    'duck_ied'
+    'reversion'
 )
 from django import VERSION
 if VERSION < (1, 7):
@@ -94,23 +68,15 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'linaro_django_pagination.middleware.PaginationMiddleware',
-    # 'djangobb_forum.middleware.LastLoginMiddleware',
-    # 'djangobb_forum.middleware.UsersOnline',
-    # 'djangobb_forum.middleware.TimezoneMiddleware',
 )
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
     'duck_utils.loaders.Loader',
-    # 'django.template.loaders.eggs.Loader',
-
-
 )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
     'compressor.finders.CompressorFinder',
 )
 
@@ -150,46 +116,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
-    "sekizai.context_processors.sekizai",
-    'djangobb_forum.context_processors.forum_settings',
 )
 MEDIA_URL = '/static_tel/'
-HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': os.path.join(BASE_DIR, 'djangobb_index'),
-        'INCLUDE_SPELLING': True,
-    },
-}
-HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
-# DATABASE_ROUTERS = ['duck_svi.routers.SviRouter',]
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_IMAGE_BACKEND = "pillow"
-
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'full',
-        'height': 300,
-        'width': 1300,
-        'basicEntities': False,
-        'entities': False,
-        'htmlbase': False,
-        'entities_latin': False,
-        'entities_greek': False,
-        'removeFormatTags': '',
-        'removeFormatAttributes': '',
-        'autoParagraph': False,
-        'fullPage': True,
-        'protectedSource': ['/{% load .* %}'],
-        'contentsLanguage': 'fr',
-        "removePlugins": "stylesheetparser",
-        'allowedContent': True,
-        'clipboard_defaultContentType': 'text',
-        'fillEmptyBlocks': False,
-        'forcePasteAsPlainText': True,
-
-    },
-}
 
 
 
@@ -199,27 +127,17 @@ CKEDITOR_CONFIGS = {
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'deh*%fl_7p&+5^(ry7116z&^-)nzyi#_iaww__6^i7m#-%3bsl'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-TEMPLATE_DEBUG = True
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-ROOT_URLCONF = 'test_duck_inscription.bo_urls'
+ROOT_URLCONF = 'duck_ctu.bo_urls'
 
-WSGI_APPLICATION = 'test_duck_inscription.bo_wsgi.application'
+WSGI_APPLICATION = 'duck_ctu.bo_wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LOGIN_URL = '/'
 
-from django.conf import settings
-TEMPLATE_CONTEXT_PROCESSORS = settings.TEMPLATE_CONTEXT_PROCESSORS + ("django.core.context_processors.request",)
+
 WKHTMLTOPDF_CMD = BASE_DIR+'/wkhtmltopdf'
 try:
     import bo_local_settings
@@ -254,11 +172,3 @@ USE_TZ = True
 LANGUAGES = (
     ('fr', 'France'),
 )
-## setting djangobb_forum
-DJANGOBB_HEADER = 'Accueil forum'
-DJANGOBB_TAGLINE = 'Forum de l\'IED'
-DJANGOBB_FORUM_BASE_TITLE = 'IED forum'
-
-HELPDESK_VIEW_A_TICKET_PUBLIC = False
-HELPDESK_SUBMIT_A_TICKET_PUBLIC = False
-HELPDESK_CREATE_TICKET_HIDE_ASSIGNED_TO = True
