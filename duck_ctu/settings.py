@@ -45,7 +45,6 @@ INSTALLED_APPS = (
     'duck_inscription',
     'django_extensions',
     'django_apogee',
-    'south',
     'registration',
     'captcha',
     'compressor',
@@ -61,7 +60,9 @@ INSTALLED_APPS = (
     'openpyxl',
     "duck_utils"
 )
-
+from django import VERSION
+if VERSION < (1, 7):
+    INSTALLED_APPS += ('south', )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -162,7 +163,7 @@ try:
                                                                                           'LAST_APPS', ())
 
 except NameError:
-    pass
+    print "erreur"
 
 if DEBUG:
     COMPRESS_ENABLED = False
