@@ -97,7 +97,6 @@ USE_L10N = True
 
 USE_TZ = False  # Important, toujours False
 
-
 STATIC_URL = '/static/'
 
 COMPRESS_OFFLINE = False

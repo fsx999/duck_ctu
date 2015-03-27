@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load floppyforms %}
+{% block content %}
+
+
+    <p>
+L'accès à votre voeu de formation (
+<b>{{ wish.etape.label }}</b>
+nécessite le passage par l'étape de l'équivalence. Cette inscription est fermée depuis le
+<b>{{ wish.etape.date_fermeture_equivalence|date:'d/m/Y' }}.</b>
+</p>
+
+
+
+ <strong>Vous êtes sur une liste d'attente d'accès.</strong>
+<p>Un e-mail vous informera s'il y a une suite à votre dossier.</p>
+    <hr/>
+
+    <p><a class="btn btn-primary" href={% url 'accueil' %}>Retour à la liste des voeux</a></p>
+{% endblock %}
