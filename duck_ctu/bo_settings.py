@@ -119,8 +119,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 MEDIA_URL = '/static_tel/'
 
 
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -136,8 +134,13 @@ WSGI_APPLICATION = 'duck_ctu.bo_wsgi.application'
 
 
 LOGIN_URL = '/'
+SITE_ID = 2
+SITE_ID_IED = 1
 
-
+USE_TZ = True
+LANGUAGES = (
+    ('fr', 'France'),
+)
 WKHTMLTOPDF_CMD = BASE_DIR+'/wkhtmltopdf'
 try:
     import bo_local_settings
@@ -146,8 +149,6 @@ try:
 except ImportError:
     bo_local_settings = object
     print "pas de local settings"
-SITE_ID = 2
-SITE_ID_IED = 1
 
 try:
     if DEBUG:
@@ -168,7 +169,3 @@ else:
 
 
 
-USE_TZ = True
-LANGUAGES = (
-    ('fr', 'France'),
-)
