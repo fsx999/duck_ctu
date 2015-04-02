@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'duck_inscription',
+    'duck_inscription.apps.DuckInscriptionConfig',
     'django_extensions',
     'django_apogee',
     'registration',
@@ -102,6 +102,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = False  # Important, toujours False
+
 
 
 STATIC_URL = '/static/'
@@ -171,3 +172,4 @@ else:
     COMPRESS_ENABLED = False
 
 WKHTMLTOPDF_CMD = BASE_DIR+'/wkhtmltopdf'
+AUTH_USER_MODEL = 'duck_inscription.InscriptionUser'
