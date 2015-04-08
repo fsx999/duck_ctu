@@ -57,9 +57,6 @@ INSTALLED_APPS = (
     'duck_utils',
     'reversion'
 )
-from django import VERSION
-if VERSION < (1, 7):
-    INSTALLED_APPS += ('south', )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -72,7 +69,7 @@ MIDDLEWARE_CLASSES = (
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-    'duck_utils.loaders.Loader',
+    # 'duck_utils.loaders.Loader',
 )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -80,12 +77,6 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-
-SOUTH_DATABASE_ADAPTERS = {
-    'default': 'south.db.postgresql_psycopg2',
-    'oracle': 'south.db.sqlite3',
-    'oracle_test': 'south.db.sqlite3',
-}
 
 LANGUAGE_CODE = 'fr-fr'
 
