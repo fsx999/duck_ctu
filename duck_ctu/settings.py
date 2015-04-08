@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'duck_inscription.apps.DuckInscriptionConfig',
+    'duck_inscription',
     'django_extensions',
     'django_apogee',
     'registration',
