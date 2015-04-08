@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'duck_inscription.apps.DuckInscriptionConfig',
     'django_extensions',
     'django_apogee',
     'registration',
@@ -58,6 +59,7 @@ INSTALLED_APPS = (
     'openpyxl',
     "duck_utils"
 )
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

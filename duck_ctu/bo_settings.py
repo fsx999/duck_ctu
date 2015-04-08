@@ -31,6 +31,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '../static_tel').replace('\\', '/')
 INSTALLED_APPS = (
     'xadmin',
     'crispy_forms',
+
     'django_xworkflows.xworkflow_log',
     'duck_bo_ctu',
     'django.contrib.admin',
