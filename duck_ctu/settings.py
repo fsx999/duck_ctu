@@ -37,12 +37,10 @@ INSTALLED_APPS = (
     'duck_theme_ctu',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.comments',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'duck_inscription.apps.DuckInscriptionConfig',
     'django_extensions',
     'django_apogee',
     'registration',
@@ -60,9 +58,6 @@ INSTALLED_APPS = (
     'openpyxl',
     "duck_utils"
 )
-from django import VERSION
-if VERSION < (1, 7):
-    INSTALLED_APPS += ('south', )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
