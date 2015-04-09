@@ -141,6 +141,8 @@ WSGI_APPLICATION = 'duck_ctu.wsgi.application'
 
 LOGIN_URL = 'auth_login'
 
+WKHTMLTOPDF_CMD = BASE_DIR+'/wkhtmltopdf'
+
 from django.conf import settings
 
 TEMPLATE_CONTEXT_PROCESSORS = settings.TEMPLATE_CONTEXT_PROCESSORS + ("django.core.context_processors.request",)
@@ -168,5 +170,4 @@ if DEBUG:
 else:
     COMPRESS_ENABLED = False
 
-WKHTMLTOPDF_CMD = BASE_DIR+'/wkhtmltopdf'
 AUTH_USER_MODEL = 'duck_inscription.InscriptionUser'
