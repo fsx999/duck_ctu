@@ -1,30 +1,46 @@
-"""
-Django settings for duck_inscription project.
 
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
-"""
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-# coding=utf-8
 import os
-from django.conf import settings
-from django.conf.global_settings import gettext_noop
 DEBUG = True
+
 
 TEMPLATE_DEBUG = True
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 ALLOWED_HOSTS = []
-LANGUAGES = (('fr', gettext_noop('French')),)
+LANGUAGES = (
+    ('fr', 'France'),
+)
 DATE_FORMAT = "d/m/Y"
 DATE_INPUT_FORMATS = ("%d/%m/%Y",)
 SHORT_DATETIME_FORMAT = "d/m/Y"
+
 STATIC_ROOT = os.path.join(BASE_DIR, '../static').replace('\\', '/')
 MEDIA_ROOT = os.path.join(BASE_DIR, '../static_tel').replace('\\', '/')
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                "django.core.context_processors.request",
+            ],
+            'loaders': [
+                 'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                'duck_utils.loaders.Loader',
+            ]
+        },
+    },
+]
 
 # Application definition
 
@@ -66,11 +82,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    # 'duck_utils.loaders.Loader',
-)
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -92,21 +104,9 @@ STATIC_URL = '/static/'
 
 COMPRESS_OFFLINE = False
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
-)
 
 ACCOUNT_ACTIVATION_DAYS = 1
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.request",
-    "django.core.context_processors.static",
-    "django.core.context_processors.tz",
-    "django.contrib.messages.context_processors.messages",
-)
+
 MEDIA_URL = '/static_tel/'
 
 
@@ -128,10 +128,7 @@ LOGIN_URL = '/'
 SITE_ID = 2
 SITE_ID_IED = 1
 
-USE_TZ = True
-LANGUAGES = (
-    ('fr', 'France'),
-)
+
 WKHTMLTOPDF_CMD = BASE_DIR+'/wkhtmltopdf'
 try:
     import bo_local_settings

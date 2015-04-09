@@ -27,7 +27,31 @@ SHORT_DATETIME_FORMAT = "d/m/Y"
 STATIC_ROOT = os.path.join(BASE_DIR, '../static').replace('\\', '/')
 MEDIA_ROOT = os.path.join(BASE_DIR, '../static_tel').replace('\\', '/')
 
-
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                "django.core.context_processors.request",
+            ],
+            'loaders': [
+                 'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                'duck_utils.loaders.Loader',
+            ]
+        },
+    },
+]
 # Application definition
 
 INSTALLED_APPS = (
@@ -70,25 +94,13 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 )
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    # 'django.template.loaders.eggs.Loader',
 
-
-)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
 
-
-SOUTH_DATABASE_ADAPTERS = {
-    'default': 'south.db.postgresql_psycopg2',
-    'oracle': 'south.db.sqlite3',
-    'oracle_test': 'south.db.sqlite3',
-}
 
 LANGUAGE_CODE = 'fr-fr'
 
@@ -106,21 +118,9 @@ STATIC_URL = '/static/'
 
 COMPRESS_OFFLINE = False
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates').replace('\\', '/'),
-)
 
 ACCOUNT_ACTIVATION_DAYS = 1
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.request",
-    "django.core.context_processors.static",
-    "django.core.context_processors.tz",
-    "django.contrib.messages.context_processors.messages",
-)
+
 MEDIA_URL = '/static_tel/'
 
 
@@ -142,10 +142,6 @@ WSGI_APPLICATION = 'duck_ctu.wsgi.application'
 LOGIN_URL = 'auth_login'
 
 WKHTMLTOPDF_CMD = BASE_DIR+'/wkhtmltopdf'
-
-from django.conf import settings
-
-TEMPLATE_CONTEXT_PROCESSORS = settings.TEMPLATE_CONTEXT_PROCESSORS + ("django.core.context_processors.request",)
 
 try:
     import local_settings
