@@ -15,7 +15,6 @@ SHORT_DATETIME_FORMAT = "d/m/Y"
 
 STATIC_ROOT = os.path.join(BASE_DIR, '../static').replace('\\', '/')
 MEDIA_ROOT = os.path.join(BASE_DIR, '../static_tel').replace('\\', '/')
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
