@@ -118,7 +118,6 @@ STATIC_URL = '/static/'
 
 COMPRESS_OFFLINE = False
 
-
 ACCOUNT_ACTIVATION_DAYS = 1
 
 MEDIA_URL = '/static_tel/'
