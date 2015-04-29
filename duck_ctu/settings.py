@@ -57,6 +57,7 @@ TEMPLATES = [
 INSTALLED_APPS = (
     'xadmin',
     'crispy_forms',
+    'duck_inscription',
     'django_xworkflows.xworkflow_log',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -64,7 +65,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'duck_inscription',
+
     'django_extensions',
     'django_apogee',
     'registration',
