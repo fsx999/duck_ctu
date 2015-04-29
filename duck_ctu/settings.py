@@ -58,7 +58,6 @@ INSTALLED_APPS = (
     'xadmin',
     'crispy_forms',
     'django_xworkflows.xworkflow_log',
-    'duck_theme_ctu',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -141,7 +140,10 @@ WSGI_APPLICATION = 'duck_ctu.wsgi.application'
 LOGIN_URL = 'auth_login'
 
 WKHTMLTOPDF_CMD = BASE_DIR+'/wkhtmltopdf'
-
+SILENCED_SYSTEM_CHECKS = [
+    'fields.W340',
+    'fields.W342'
+]
 try:
     import local_settings
     from local_settings import *

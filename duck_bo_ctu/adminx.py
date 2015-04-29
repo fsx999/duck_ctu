@@ -34,6 +34,12 @@ class MainDashboard(object):
                  "btns": [
                      {'title': "Statistique", 'url': 'statistiques'},
                      {'title': "Dates et tarifs", 'url': 'datesandtarifs'}, ]},
+                 {"type": "qbutton",
+                 "title": "Gestion des emails",
+                 "btns": [
+                     {'title': "Edition des messages", 'url': 'xadmin:mailrobot_mailbody_changelist',
+                      'groups': ('edition_mail',)},
+                     ]},
                ]]
     site_title = 'Backoffice'
     title = 'Accueil'

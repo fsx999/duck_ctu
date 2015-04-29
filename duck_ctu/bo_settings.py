@@ -128,6 +128,10 @@ LOGIN_URL = '/'
 SITE_ID = 2
 SITE_ID_IED = 1
 
+SILENCED_SYSTEM_CHECKS = [
+    'fields.W340',
+    'fields.W342'
+]
 
 WKHTMLTOPDF_CMD = BASE_DIR+'/wkhtmltopdf'
 try:
