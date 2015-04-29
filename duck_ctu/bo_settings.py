@@ -45,8 +45,9 @@ TEMPLATES = [
 
 INSTALLED_APPS = (
     'duck_theme_ied',
-    'xadmin',
+
     'crispy_forms',
+    'xadmin',
     'django_xworkflows.xworkflow_log',
     'duck_bo_ctu',
     'django.contrib.admin',
