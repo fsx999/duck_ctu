@@ -72,7 +72,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'openpyxl',
     'duck_utils',
-    'reversion'
+    'reversion',
+
 )
 
 MIDDLEWARE_CLASSES = (
