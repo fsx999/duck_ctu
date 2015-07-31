@@ -160,6 +160,3 @@ if DEBUG:
 else:
     COMPRESS_ENABLED = False
 
-
-
-
